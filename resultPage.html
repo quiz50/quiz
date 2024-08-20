@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Score</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        /* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(38, 41, 37);
+    min-height: 80vh;
+    text-align: center;
+}
+
+/* Heading styles */
+.heading-txt {
+    font-size: 50px;
+    margin-bottom: 1rem;
+    color: purple; /* Adjust color if needed */
+}
+
+/* Score styles */
+#score {
+    font-size: 50px;
+    color: rgb(231, 17, 28); /* Adjust color if needed */
+}
+
+/* Gotohome styles */
+.gotohome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: bisque;
+    min-height: 20vh;
+}
+
+/* Button styles */
+.gotohome button {
+    padding: 10px 20px;
+    border: none;
+    background-color: purple;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 3px 3px 2px 1px rgb(127, 109, 109);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.gotohome button:hover {
+    background-color: darkviolet;
+}
+
+.gotohome button:active {
+    box-shadow: none;
+}
+
+     </style>
+</head>
+<body>
+    <div class="container">
+        <p class="heading-txt">Your Score</p>
+        <h1 id="score"></h1>
+        <script>
+            let score = localStorage.getItem("score");
+            document.getElementById("score").innerHTML = score;
+        </script>
+    </div>
+    <div class="gotohome">
+        <a href="/quiz/index.html"><button>GO TO HOME</button></a>
+    </div>
+
+<!--     <script>
+        function openIndexPage(){
+            window.location.href='index.html';
+    </script> -->
+</body>
+</html>
