@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
         },
         cl9: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
+            subjects: ['Biology', 'Physics', 'Chemistry'],
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
         },
         cl10: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Science'],
+            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7','Chapter 8','Chapter 9','Chapter 10','Chapter 11']
         },
         cl11: {
             subjects: ['Math', 'Physics', 'Chemistry'],
