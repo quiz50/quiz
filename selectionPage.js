@@ -6,51 +6,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const classData = {
         cl1: {
-            subjects: ['Math', 'Physics'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science'],
+            chapters: ['All Chapters']
         },
         cl2: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science'],
+            chapters: ['All Chapters']
         },
         cl3: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science'],
+            chapters: ['All Chapters']
         },
         cl4: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science'],
+            chapters: 'All Chapters']
         },
         cl5: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science','Hindi'],
+            chapters: ['All Chapters']
         },
         cl6: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science','Hindi','English Grammar','Hindi Grammar'],
+            chapters: ['All Chapters']
         },
         cl7: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+            subjects: ['Math', 'English','GK' ,'Science','Hindi','English Grammar','Hindi Grammar'],
+            chapters: ['All Chapters']
         },
         cl8: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+           subjects: ['Math', 'English','GK' ,'Science','Hindi','English Grammar','Hindi Grammar'],
+            chapters: ['All Chapters']
         },
         cl9: {
-            subjects: ['Biology', 'Physics', 'Chemistry'],
+            subjects: ['Biology', 'Physics', 'Chemistry','Math','History', 'Political Science', 'Geography', 'Economics','Hindi','Python'],
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
         },
         cl10: {
-            subjects: ['Science'],
+            subjects: ['Science','Math','English','History', 'Political Science', 'Geography', 'Economics','Hindi','Python'],
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7','Chapter 8','Chapter 9','Chapter 10','Chapter 11']
         },
         cl11: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
+            subjects: ['Math', 'Physics', 'Chemistry','Biology', 'Physical Education','Python','C'],
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
         },
         cl12: {
-            subjects: ['Math', 'Physics', 'Chemistry'],
+            subjects: ['Math', 'Physics', 'Chemistry'','Biology', 'Physical Education','Python','C'],
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
         },
         clBTech: {
