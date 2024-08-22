@@ -17,10 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
             subjects: ['Math', 'English','GK' ,'Science'],
             chapters: ['All Chapters']
         },
-        cl4: {
-            subjects: ['Math', 'English','GK' ,'Science'],
-            chapters: 'All Chapters']
-        },
+       cl4: {
+    subjects: ['Math', 'English','GK' ,'Science'],
+    chapters: ['All Chapters'] // Added missing '['
+},
+
         cl5: {
             subjects: ['Math', 'English','GK' ,'Science','Hindi'],
             chapters: ['All Chapters']
@@ -50,9 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
             chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
         },
         cl12: {
-            subjects: ['Math', 'Physics', 'Chemistry'','Biology', 'Physical Education','Python','C'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
-        },
+    subjects: ['Math', 'Physics', 'Chemistry','Biology', 'Physical Education','Python','C'],
+    chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
+},
+
         clBTech: {
             subjects: ['C', 'TOC', 'CPP', 'OS', 'DBMS', 'COA', 'Digital Electronic', 'JAVA'],
             chapters: ['All Chapters']
