@@ -1,127 +1,75 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function() {
     const selectionForm = document.getElementById("selection-form");
     const classSelect = document.getElementById("class");
     const subjectSelect = document.getElementById("subject");
     const chapterSelect = document.getElementById("chapter");
+    const loader = document.getElementById("loader");
+    const selectionContainer = document.querySelector('.selection-container');
 
-    const classData = {
-        cl1: {
-            subjects: ['Math', 'English','GK' ,'Science'],
-            chapters: ['All Chapters']
-        },
-        cl2: {
-            subjects: ['Math', 'English','GK' ,'Science'],
-            chapters: ['All Chapters']
-        },
-        cl3: {
-            subjects: ['Math', 'English','GK' ,'Science'],
-            chapters: ['All Chapters']
-        },
-       cl4: {
-    subjects: ['Math', 'English','GK' ,'Science'],
-    chapters: ['All Chapters'] // Added missing '['
-},
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbywh0JQwRLJNzQIDJzfF0FWX-krbQGgQjRVfSNSQ0jdqJnV6rNVGDKSNawTle-9-lzhvg/exec';
 
-        cl5: {
-            subjects: ['Math', 'English','GK' ,'Science','Hindi'],
-            chapters: ['All Chapters']
-        },
-        cl6: {
-            subjects: ['Math', 'English','GK' ,'Science','Hindi','English Grammar','Hindi Grammar'],
-            chapters: ['All Chapters']
-        },
-        cl7: {
-            subjects: ['Math', 'English','GK' ,'Science','Hindi','English Grammar','Hindi Grammar'],
-            chapters: ['All Chapters']
-        },
-        cl8: {
-           subjects: ['Math', 'English','GK' ,'Science','Hindi','English Grammar','Hindi Grammar'],
-            chapters: ['All Chapters']
-        },
-        cl9: {
-            subjects: ['Biology', 'Physics', 'Chemistry','Math','History', 'Political Science', 'Geography', 'Economics','Hindi','Python'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
-        },
-        cl10: {
-            subjects: ['Science','Math','English','History', 'Political Science', 'Geography', 'Economics','Hindi','Python'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7','Chapter 8','Chapter 9','Chapter 10','Chapter 11']
-        },
-        cl11: {
-            subjects: ['Math', 'Physics', 'Chemistry','Biology', 'Physical Education','Python','C'],
-            chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
-        },
-        cl12: {
-    subjects: ['Math', 'Physics', 'Chemistry','Biology', 'Physical Education','Python','C'],
-    chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7']
-},
+    fetch(scriptUrl)
+        .then(response => response.json())
+        .then(formData => {
+            loader.style.display = "none"; // Hide loader
+            selectionContainer.style.display = "flex"; // Show form
+            // Populate class dropdown
+            const uniqueClasses = [...new Set(formData.map(item => item.class))];
+            uniqueClasses.forEach(className => {
+                const option = document.createElement("option");
+                option.value = className;
+                option.textContent = className;
+                classSelect.appendChild(option);
+            });
 
-        clBTech: {
-            subjects: ['C', 'TOC', 'CPP', 'OS', 'DBMS', 'COA', 'Digital Electronic', 'JAVA'],
-            chapters: ['All Chapters']
-        }
-    };
+            classSelect.addEventListener("change", function() {
+                const selectedClass = classSelect.value;
+                const classData = formData.find(item => item.class === selectedClass);
 
-    // Populate subjects and chapters based on selected class
-    classSelect.addEventListener("change", function () {
-        const selectedClass = classSelect.value;
-        const subjects = classData[selectedClass]?.subjects || [];
-        const chapters = classData[selectedClass]?.chapters || [];
+                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+                chapterSelect.innerHTML = '<option value="">Select Chapter</option>';
 
-        // Clear existing options
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        chapterSelect.innerHTML = '<option value="">Select Chapter</option>';
+                if (classData) {
+                    classData.subject.forEach(subject => {
+                        const option = document.createElement("option");
+                        option.value = `sub${subject}`; // Add "sub" prefix
+                        option.textContent = subject;
+                        subjectSelect.appendChild(option);
+                    });
 
-        // Populate subjects
-        subjects.forEach(subject => {
-            const option = document.createElement("option");
-            option.value = `sub${subject}`;
-            option.textContent = subject;
-            subjectSelect.appendChild(option);
+                    classData.chapter.forEach(chapter => {
+                        let chapterValue;
+                        if (chapter.toLowerCase().includes("all")) {
+                            chapterValue = "chAll";
+                        } else {
+                            chapterValue = "ch" + chapter.replace(/\D/g, '');
+                        }
+                        const option = document.createElement("option");
+                        option.value = chapterValue; // Use chapterValue
+                        option.textContent = chapter;
+                        chapterSelect.appendChild(option);
+                    });
+                }
+            });
+
+            // Form submission
+            selectionForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const selectedClass = classSelect.value.trim();
+                const selectedSubject = subjectSelect.value.trim();
+                const selectedChapter = chapterSelect.value.trim();
+
+                if (selectedClass && selectedSubject && selectedChapter) {
+                    // const subjectParam = selectedClass.replace(/\s/g, '') + selectedSubject + selectedChapter;
+                    const subjectParam = selectedClass.replace("Class", "cl").replace(/\s/g, '') + selectedSubject + selectedChapter;
+                    console.log(subjectParam);
+                    window.location.href = `quizPage.html?subject=${encodeURIComponent(subjectParam)}`;
+                } else {
+                    alert("Please select all the fields.");
+                }
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
         });
-
-        // Populate chapters
-        chapters.forEach(chapter => {
-            let chapterValue;
-            if (chapter.includes("All")) {
-                chapterValue = `chAll`;
-            } else {
-                chapterValue = `ch${chapter.replace(/\D/g, '')}`;
-            }
-            const option = document.createElement("option");
-            option.value = chapterValue;
-            option.textContent = chapter;
-            chapterSelect.appendChild(option);
-        });
-    });
-
-    // Form submission handler
-    if (selectionForm) {
-        selectionForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get the selected values
-            const selectedClass = classSelect.value;
-            const selectedSubject = subjectSelect.value.split(' ').join('');
-            const selectedChapter = chapterSelect.value;
-
-            // // Debugging statements
-            // console.log('Selected Class:', selectedClass);
-            // console.log('Selected Subject:', selectedSubject);
-            // console.log('Selected Chapter:', selectedChapter);
-
-            // Check if all fields are selected
-            if (selectedClass && selectedSubject && selectedChapter) {
-                // Concatenate the values without spaces
-                const subjectParam = selectedClass + selectedSubject + selectedChapter;
-
-                // Redirect to quizPage.html with the correct URL
-                window.location.href = `quizPage.html?subject=${subjectParam}`;
-            } else {
-                // Show an alert if any field is not selected
-                alert("Please select all the fields.");
-                // Ensure redirection is not occurring
-                // console.log('Redirection prevented.');
-            }
-        });
-    }
 });
