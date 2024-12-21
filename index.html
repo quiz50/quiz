@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,29 +22,38 @@
             width: 200px;
             height: 200px;
             animation: spin 2s linear infinite;
-            display: flex; /* Initially show the loader */
+            display: flex;
+            /* Initially show the loader */
         }
 
         .selection-container {
-            display: none; /* Initially hide the form */
+            display: none;
+            /* Initially hide the form */
         }
 
-        #loader, .selection-container {
+        #loader,
+        .selection-container {
             justify-content: center;
             align-items: center;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <div id="loader"></div>
     <div class="selection-container">
         <h2>Quiz50</h2>
-        
+
         <form id="selection-form">
             <label for="class">Class:</label>
             <select id="class" name="class">
@@ -64,4 +74,5 @@
     </div>
     <script src="selectionPageWithSession.js"></script>
 </body>
+
 </html>
