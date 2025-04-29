@@ -43,20 +43,12 @@ body {
     margin: 10px;
     text-align: center;
 }
-
-.timer-container {
-    display: flex;
-    justify-content: center;
+#total-questions{
+    margin: 10px;
+    text-align: center;
     width: 100%;
-    margin: 10px 0;
 }
 
-#timer {
-    font-size: larger;
-    font-weight: 600;
-    padding: 4px;
-    box-shadow: 0px 0px 2px 1px purple;
-}
 
 .question {
     margin: 8px;
@@ -93,16 +85,26 @@ body {
     color: white;
     box-shadow: 3px 3px 4px 1px rgb(78, 69, 78);
 }
+.correct-option {
+    background-color: green !important;
+    color: white !important;
+    box-shadow: 3px 3px 4px 1px rgb(78, 69, 78) !important;
+}
+.wrong-option {
+    background-color: red !important;
+    color: white !important;
+    box-shadow: 3px 3px 4px 1px rgb(78, 69, 78) !important;
+}
 
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
     margin: 10px 0;
 }
 
-#next-button {
-    padding: 10px 40px 10px;
+#next-button,#back-button, #end-quiz-button {
+    padding: 10px 20px 10px;
     border: none;
     background-color: purple;
     color: white;
@@ -113,7 +115,7 @@ body {
     transition: 0.2s;
 }
 
-#next-button:active {
+#next-button:active,#back-button:active, #end-quiz-button:active {
     box-shadow: none;
 }
 
@@ -138,9 +140,7 @@ body {
     </div>
     <div class="container">
         <p class="heading-txt">Quiz APP</p>
-        <div class="timer-container">
-            <p id="timer"></p>
-        </div>
+        <div id="total-questions"></div>
         <div class="question">
             <span id="question-number"></span>
             <span id="question-txt"></span>
@@ -156,7 +156,9 @@ body {
             <label for="opt4" id="option4"></label>
         </div>
         <div class="button-container">
+            <input type="button" value="Back" id="back-button">
             <input type="button" value="Next" id="next-button">
+            <input type="button" value="End Quiz" id="end-quiz-button">
         </div>
     </div>
     <script src="quizPage.js"></script>
